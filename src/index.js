@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {Posts} from './components/posts/posts';
+import {About} from './components/about/about';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
@@ -11,6 +12,7 @@ ReactDOM.render(
     <Switch>
         <Route path='/' exact={true} component={App} />
         <Route path='/posts/:postTitle' component={Posts} />
+        <Route path='/about' component={About} />
     </Switch>
     
     </BrowserRouter>

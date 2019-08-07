@@ -1,6 +1,9 @@
 import React  from 'react';
 import './App.css';
+import {Navigation} from './components/navigation/navigation';
+import {Header} from './components/header/header';
 import {BlogBody} from './components/blogBody/blogposts';
+import {Footer} from './components/footer/footer';
 import Pagination from "react-js-pagination"; 
 
 
@@ -38,19 +41,28 @@ class App extends React.Component {
     const firstPostIndex = lastPostIndex - this.state.postsPerPage;
     const postsShown = this.state.blogPost.slice(firstPostIndex,lastPostIndex);
     return  (
+      
   
-      <div className='App'>
-        <BlogBody posts = {postsShown}>
-        </BlogBody>
-        <Pagination
-          itemClass="page-item" 
-          linkClass="page-link"
-          activePage={this.state.activePage}
-          totalItemsCount={this.state.blogPost.length}
-          itemsCountPerPage={5}
-          pageRangeDisplayed={5}
-          onChange={this.handlePageChange.bind(this)}
-        />
+      <div className='main'>
+        <Navigation></Navigation>
+        <Header></Header>
+        <div className='container'>
+          <BlogBody posts = {postsShown}>
+          </BlogBody>
+          <div className='clearfix '>
+            <Pagination
+              itemClass="page-item" 
+              linkClass="page-link"
+              activePage={this.state.activePage}
+              totalItemsCount={this.state.blogPost.length}
+              itemsCountPerPage={5}
+              pageRangeDisplayed={5}
+              hideFirstLastPages = {true}
+              onChange={this.handlePageChange.bind(this)}
+            />
+            <Footer></Footer>
+          </div>
+        </div>
       </div>
     );
   }
