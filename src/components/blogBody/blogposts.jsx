@@ -10,7 +10,7 @@ export const BlogBody = (props)=>(
         props.posts.map(post=>(
             <div className='col-lg-8 col-md-10 mx-auto'>
                 <div key={post._id} className='post-preview'>
-                    <Link to={{pathname:'/posts/'+post.title,data:post.post}}>
+                    <Link to={{pathname:'/posts/'+post.title,data:post}}>
                         <h2 className='post-title'>{post.title}</h2>
                     </Link>
                     <Truncate lines={2}>
